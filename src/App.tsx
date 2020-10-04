@@ -1,26 +1,38 @@
+// Libraries
+import { SnackbarProvider } from 'notistack';
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Router } from 'react-router-dom';
+
+// Modules
+import { withRoot } from './MaterialContainer';
+
+// Styles
 import './App.css';
 
-function App() {
+// Setup
+import { history } from './ReduxConfig/SetUpStore';
+
+// Views
+import { GamePage } from './Views/Game';
+import { WelcomePage } from './Views/Welcome';
+
+function Routes() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Route exact={true} path='/' component={WelcomePage} />
+      <Route exact={true} path='/game' component={GamePage} />
+    </React.Fragment>
   );
 }
 
-export default App;
+function App() {
+  return (
+    <Router history={history}>
+      <SnackbarProvider maxSnack={3} >
+        <Routes />
+      </SnackbarProvider>
+    </Router>
+  );
+}
+
+export default withRoot(App);
