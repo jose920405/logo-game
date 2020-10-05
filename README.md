@@ -2,6 +2,7 @@
 
 In the folder `build` there is a html file. Just double click on it.
 
+>PDTA: This `build` folder normally shouldn't be added to the repos, but that was in the specs.
 ___
 
 ## Available Scripts
