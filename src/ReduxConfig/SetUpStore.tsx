@@ -30,7 +30,7 @@ export const configureStore = (initialState?: IRootState) => {
   const persistConfig: PersistConfig<any> = {
     key: 'root',
     storage,
-    blacklist: ['game'], // Array of reducers to persist
+    blacklist: ['game'], // comment this line to enable persistence even if user refresh the page.
     transforms: [encryptor as any],
   };
 

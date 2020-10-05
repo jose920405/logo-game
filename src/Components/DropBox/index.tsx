@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: 185,
     height: 185,
     marginRight: theme.spacing(3),
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(4),
   },
 }));
 

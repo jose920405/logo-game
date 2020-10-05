@@ -25,7 +25,13 @@ import imageV from '../../Images/Letters/zoovu-v.svg';
 import imageU from '../../Images/Letters/zoovu-u.svg';
 import { useSelector } from 'react-redux';
 
-const images = shuffle([imageZ, imageO, imageO, imageV, imageU]);
+const images = shuffle([
+  { img: imageZ, letter: 'z' },
+  { img: imageO, letter: 'o' },
+  { img: imageO, letter: 'o' },
+  { img: imageV, letter: 'v' },
+  { img: imageU, letter: 'u' }
+]);
 
 function DraggableLettersZone() {
   const classes = useStyles();
@@ -35,20 +41,18 @@ function DraggableLettersZone() {
   return (
     <DndProvider backend={HTML5Backend}>
       <Grid
-        className={classes.block}
         container
         justify={'center'}
         alignItems={'center'}
         direction={'row'}
         spacing={3}
       >
-        {map(images, (eachImage, index) => <DragBox key={index} image={eachImage} index={index} />)}
+        {map(images, (eachImage, index) => <DragBox key={index} imageInfo={eachImage} index={index} />)}
       </Grid>
       <Typography className={classes.captionText} variant='caption' color='inherit'>
         {`...and drop them to make the logo great again!`}
       </Typography>
       <Grid
-        className={classes.block}
         container
         justify={'center'}
         alignItems={'center'}
@@ -58,7 +62,12 @@ function DraggableLettersZone() {
         {map(dropZones, (eachDropZone, index) => {
           if (eachDropZone.image) {
             return (
-              <DragBox key={index} image={eachDropZone.image} index={eachDropZone.dragIndex as number} fromDrop />
+              <DragBox
+                key={index}
+                fromDrop
+                imageInfo={{ img: eachDropZone.image, letter: eachDropZone.dragLetter as string }}
+                index={eachDropZone.dragIndex as number}
+              />
             );
           }
 
@@ -74,9 +83,6 @@ function DraggableLettersZone() {
 
 
 const useStyles = makeStyles((theme: Theme) => ({
-  block: {
-    marginTop: theme.spacing(4),
-  },
   captionText: {
     marginTop: theme.spacing(6),
     color: 'gray',

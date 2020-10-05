@@ -1,6 +1,6 @@
 import { useSnackbar } from 'notistack';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 // Material Components
 import Button from '@material-ui/core/Button';
@@ -28,6 +28,11 @@ export function WelcomePage() {
   const [textName, setTextName] = useState('');
 
   //#region Functions
+/**
+ * I didn't find a place when debounce should be used
+ * Maybe on drag events but react DnD make this really good and events and dispatched only when is necessary.
+ * anyway i use debounce from lodash, but here is an example of the debounce.
+ */
   // const debounce = (callback: any, delay = 250) => {
   //   let timeoutId: any = null;
   //   return (...args: any) => {
@@ -39,12 +44,6 @@ export function WelcomePage() {
   //   };
   // };
   //#endregion Functions
-
-  // const greet = () => console.log('Hello World!');
-  // const debouncedGreet = debounce(greet, 3000);
-  // for (let i = 0; i < 10; i++) {
-  //   debouncedGreet();
-  // }
 
   //#region Handlers
   const handleUserTextChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {

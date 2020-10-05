@@ -10,7 +10,7 @@ import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import ScoreLabel from '.';
 
 // Actions
-import { set_score } from '../../Reducers/Game/GameActions';
+import { reset_game, set_score } from '../../Reducers/Game/GameActions';
 
 // Styles
 import Styles from './Styles';
@@ -28,12 +28,14 @@ export type ScoreLabelProps = IOwnProps & TMapStateToProps & TMapDispatchToProps
 
 const mapStateToProps = (state: IRootState) => {
   return {
+    exerciseFinished: state.game.exerciseFinished,
     score: state.game.score,
   };
 };
 
 const mapDispatchToProps = (dispatch: ThunkDispatchType) => bindActionCreators({
   // GameActions
+  reset_game,
   set_score,
 }, dispatch);
 

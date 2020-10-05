@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import withWidth from '@material-ui/core/withWidth';
 
-// Styles
+// Material Styles
 import { withStyles } from '@material-ui/core';
 import Styles from './Styles';
 
@@ -19,24 +19,39 @@ import { ScoreLabelProps } from './ScoreLabelLCScene';
 class ScoreLabelLC extends React.Component<ScoreLabelProps> {
   private interval: any = null;
 
-  componentDidMount() {
-    this.interval = setInterval(() => {
-      const score = this.props.score;
-      this.props.set_score(score + 1);
-    }, 1000);
-  }
-
+  //#region LifeCycle
   componentWillUnmount() {
     clearInterval(this.interval);
   }
 
   shouldComponentUpdate(nextProps: ScoreLabelProps) {
-    if (nextProps.score !== this.props.score) {
+    if (nextProps.score !== this.props.score || nextProps.exerciseFinished !== this.props.exerciseFinished) {
       return true;
     }
 
     return false;
   }
+
+  componentDidUpdate(prevProps: ScoreLabelProps) {
+    if (this.props.score === 1) {
+      this.startInterval();
+    }
+
+    if (!prevProps.exerciseFinished && this.props.exerciseFinished) {
+      clearInterval(this.interval);
+      this.props.reset_game();
+    }
+  }
+  //#endregion LifeCycle
+
+  //#region Functions
+  startInterval() {
+    this.interval = setInterval(() => {
+      const score = this.props.score;
+      this.props.set_score(score + 1);
+    }, 1000);
+  }
+  //#endregion Functions
 
   render() {
     const classes = this.props.classes;

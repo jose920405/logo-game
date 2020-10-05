@@ -1,39 +1,76 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+// Libraries
+import { each } from 'lodash';
+import { useSnackbar } from 'notistack';
 
 // Material Components
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
+// Material Styles
+import { makeStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core/styles';
+
 // Components
 import DraggableLettersZone from '../Components/DraggableLettersZone';
 import ScoreLabel from '../Components/ScoreLabelLC/ScoreLabelLCScene';
 
-// Styles
-import { makeStyles } from '@material-ui/styles';
-import { Theme } from '@material-ui/core/styles';
+// Actions
+import { set_finish_exercise } from '../Reducers/Game/GameActions';
 
 // Utils
 import { history } from '../ReduxConfig/SetUpStore';
 
-// Modules
-// import { useSelector } from 'react-redux';
-
 export function GamePage() {
   const classes = useStyles();
 
-  //#region Helpers
-  //#endregion Helpers
-
   //#region Reducer info
   const userName = useSelector((state: IRootState) => state.game.userName);
+  const dropZones = useSelector((state: IRootState) => state.game.dropZones);
+  const score = useSelector((state: IRootState) => state.game.score);
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const dispatch = useDispatch();
   if (!userName) {
     history.replace('/');
   }
   //#endregion Reducer Info
 
-  //#region Handlers
-  //#endregion Handlers
+  //#region Functions
+  useEffect(() => {
+
+    const validateResult = () => {
+      let allCardPlaced = true;
+      let successResult = true;
+      each(dropZones, (dropZone) => {
+        if (!dropZone.image) {
+          allCardPlaced = false;
+          return false; // break loop
+        }
+
+        if (dropZone.dragLetter !== dropZone.validLetter) {
+          successResult = false;
+        }
+      });
+
+      if (allCardPlaced) {
+        if (successResult) {
+          enqueueSnackbar(`Great. The order is correct. You score was: ${score}`, { variant: 'success' });
+        } else {
+          enqueueSnackbar(`Sorry. The order is wrong. You score was: ${score}`, { variant: 'error' });
+        }
+
+        dispatch(set_finish_exercise(true));
+      }
+    };
+
+    validateResult();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dropZones]);
+  //#endregion Functions
 
   return (
     <Grid container justify={'center'} className={classes.root} item direction={'column'}>
