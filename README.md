@@ -9,6 +9,10 @@ ___
 
 In the project directory, you can run:
 
+### `yarn install`
+
+The project have the `.nvmrc` value where is defined the node version used, if you want to run the code ensure that your are using the correct node version `13.14.0` running `nvm use`. After this you can run `yarn install` and go to the next command.
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
