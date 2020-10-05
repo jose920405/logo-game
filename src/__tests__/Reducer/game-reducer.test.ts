@@ -75,6 +75,7 @@ describe('Game reducer', () => {
     ];
 
     const store = mockStore({ game: initialState });
+
     await store.dispatch(reset_game() as any);
     expect(store.getActions()).toEqual(expectedActions);
   });

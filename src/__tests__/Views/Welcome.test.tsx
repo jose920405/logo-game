@@ -1,36 +1,13 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
 
-// Providers
-import { SnackbarProvider } from 'notistack';
-import { Provider } from 'react-redux';
-
-// Material Dependencies
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
-
-// Configuration
-import configureStore from '../../ReduxConfig/SetUpStore';
+import { render } from '../../test-utils';
 
 // Component
 import { WelcomePage } from '../../Views/Welcome';
 
-const { store } = configureStore();
-
-const theme = createMuiTheme({});
-
 describe('Welcome View', () => {
 
-  const { getByText } = render(
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <SnackbarProvider maxSnack={3}>
-          <WelcomePage />
-        </SnackbarProvider>
-      </ThemeProvider>
-    </Provider>
-  );
+  const { getByText } = render(<WelcomePage />);
 
   test('Should render Correctly', () => {
     const el = getByText('Hello friend, tell me your name...');
@@ -38,6 +15,7 @@ describe('Welcome View', () => {
   });
 
   test('onClick ready button', () => {
-    // TODO
+    // const el2 = getByTestId(`letsBtn`);
+    // console.log('48 el2 >>> ', el2);
   });
 });
