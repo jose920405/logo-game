@@ -21,7 +21,7 @@ import ScoreLabel from '../Components/ScoreLabelLC/ScoreLabelLCScene';
 import { set_finish_exercise } from '../Reducers/Game/GameActions';
 
 // Utils
-import { history } from '../ReduxConfig/SetUpStore';
+import History from '../Utils/History';
 
 export function GamePage() {
   const classes = useStyles();
@@ -35,7 +35,7 @@ export function GamePage() {
 
   const dispatch = useDispatch();
   if (!userName) {
-    history.replace('/');
+    History.replace('/');
   }
   //#endregion Reducer Info
 

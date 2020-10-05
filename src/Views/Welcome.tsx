@@ -14,10 +14,10 @@ import { Theme } from '@material-ui/core/styles';
 
 // Utils
 import Colors from '../Utils/Colors';
-import { history } from '../ReduxConfig/SetUpStore';
 
 // Actions
 import { set_user_name } from '../Reducers/Game/GameActions';
+import History from '../Utils/History';
 
 export function WelcomePage() {
   const classes = useStyles();
@@ -56,7 +56,7 @@ export function WelcomePage() {
     }
 
     dispatch(set_user_name(textName));
-    history.push('/game');
+    History.push('/game');
   };
   //#endregion Handlers
 

@@ -1,4 +1,3 @@
-import { createBrowserHistory } from 'history';
 import { applyMiddleware, compose, createStore } from 'redux';
 
 //#region persist import block
@@ -10,8 +9,6 @@ import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 
 import rootReducer from './combineReducers';
-
-const history = createBrowserHistory();
 
 export const configureStore = (initialState?: IRootState) => {
   const enhancer = compose(
@@ -43,7 +40,5 @@ export const configureStore = (initialState?: IRootState) => {
   return { persistor, store };
 
 };
-
-export { history };
 
 export default configureStore;
