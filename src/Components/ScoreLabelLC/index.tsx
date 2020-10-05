@@ -39,7 +39,9 @@ class ScoreLabelLC extends React.Component<ScoreLabelProps> {
 
     if (!prevProps.exerciseFinished && this.props.exerciseFinished) {
       clearInterval(this.interval);
-      this.props.reset_game();
+      setTimeout(() => {
+        this.props.reset_game();
+      }, 10000);
     }
   }
   //#endregion LifeCycle

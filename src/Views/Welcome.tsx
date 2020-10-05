@@ -77,7 +77,7 @@ export function WelcomePage() {
           {`Hello friend, tell me your name...`}
         </Typography>
         <TextField className={classes.userInput} placeholder={'Your name here'} value={textName} onChange={handleUserTextChange} />
-        <Button className={classes.letsGoBtn} variant={'outlined'} onClick={onClickLetsGo}>{`Let's go ->`}</Button>
+        <Button data-testid={'letsBtn'} className={classes.letsGoBtn} variant={'outlined'} onClick={onClickLetsGo}>{`Let's go ->`}</Button>
       </Grid>
     </Grid>
   );

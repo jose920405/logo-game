@@ -24,7 +24,7 @@ function Routes() {
 
 function App() {
   return (
-    <SnackbarProvider maxSnack={3} >
+    <SnackbarProvider maxSnack={3}>
       <Router>
         <Routes />
       </Router>

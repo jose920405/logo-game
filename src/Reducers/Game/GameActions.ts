@@ -13,12 +13,10 @@ export const set_user_name = (value: string): IAction => ({ type: GameActionType
 
 export const reset_game = (): IThunkResult => {
   return async (dispatch) => {
-    setTimeout(() => {
-      batch(() => {
-        dispatch(set_dropzones(defaultDropZonesInfo));
-        dispatch(set_finish_exercise(false));
-        dispatch(set_score(0));
-      });
-    }, 10000);
+    batch(() => {
+      dispatch(set_dropzones(defaultDropZonesInfo));
+      dispatch(set_finish_exercise(false));
+      dispatch(set_score(0));
+    });
   };
 };
