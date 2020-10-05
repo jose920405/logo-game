@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "./static/css/main.ff93c35d.chunk.css",
+    "main.js": "./static/js/main.3318e8d1.chunk.js",
+    "main.js.map": "./static/js/main.3318e8d1.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.bac93282.js",
+    "runtime-main.js.map": "./static/js/runtime-main.bac93282.js.map",
+    "static/js/2.7257a46e.chunk.js": "./static/js/2.7257a46e.chunk.js",
+    "static/js/2.7257a46e.chunk.js.map": "./static/js/2.7257a46e.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.b9803e5437b87a40ab5d36fa51c10cae.js": "./precache-manifest.b9803e5437b87a40ab5d36fa51c10cae.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.ff93c35d.chunk.css.map": "./static/css/main.ff93c35d.chunk.css.map",
+    "static/js/2.7257a46e.chunk.js.LICENSE.txt": "./static/js/2.7257a46e.chunk.js.LICENSE.txt",
+    "static/media/clock.svg": "./static/media/clock.3baae9d3.svg",
+    "static/media/zoovu-o.svg": "./static/media/zoovu-o.987e802d.svg",
+    "static/media/zoovu-u.svg": "./static/media/zoovu-u.509452d2.svg",
+    "static/media/zoovu-v.svg": "./static/media/zoovu-v.f04e5e7e.svg",
+    "static/media/zoovu-z.svg": "./static/media/zoovu-z.98d275b2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bac93282.js",
+    "static/js/2.7257a46e.chunk.js",
+    "static/css/main.ff93c35d.chunk.css",
+    "static/js/main.3318e8d1.chunk.js"
+  ]
+}

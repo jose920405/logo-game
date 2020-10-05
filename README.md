@@ -31,4 +31,4 @@ ____
 
 - Material was used as UI Framework. 
 
-- Mobile Responsive.
+- Mobile Responsive implemented.
