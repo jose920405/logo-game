@@ -76,7 +76,7 @@ export function GamePage() {
     <Grid container justify={'center'} className={classes.root} item direction={'column'}>
       <Grid container direction={'row'}>
         <Grid container item xs={12} sm={6}>
-          <Typography className={classes.goodLookText} variant='h6' color='inherit'>
+          <Typography id={'goodLuck'} className={classes.goodLookText} variant='h6' color='inherit'>
             {`Good Look, ${userName}`}
           </Typography>
         </Grid>

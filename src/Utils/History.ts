@@ -1,2 +1,9 @@
 import { createHashHistory } from 'history';
-export default createHashHistory();
+
+let history: any;
+
+if (typeof document !== 'undefined') {
+  history = createHashHistory();
+}
+
+export default history;
