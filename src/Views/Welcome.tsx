@@ -73,11 +73,11 @@ export function WelcomePage() {
         sm={8}
         xs={10}
       >
-        <Typography className={classes.helloFriend} variant='h6' color='inherit'>
+        <Typography id={'welcomeText'} className={classes.helloFriend} variant='h6' color='inherit'>
           {`Hello friend, tell me your name...`}
         </Typography>
-        <TextField className={classes.userInput} placeholder={'Your name here'} value={textName} onChange={handleUserTextChange} />
-        <Button data-testid={'letsBtn'} className={classes.letsGoBtn} variant={'outlined'} onClick={onClickLetsGo}>{`Let's go ->`}</Button>
+        <TextField id={'userInput'} className={classes.userInput} placeholder={'Your name here'} value={textName} onChange={handleUserTextChange} />
+        <Button id={'letsBtn'} className={classes.letsGoBtn} variant={'outlined'} onClick={onClickLetsGo}>{`Let's go ->`}</Button>
       </Grid>
     </Grid>
   );
